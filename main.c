@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int mod = 0;
+
 /**
  * main - the starting point of execution of the program
  *

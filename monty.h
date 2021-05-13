@@ -6,7 +6,9 @@
 #include <unistd.h>
 #include <string.h>
 
-#define STACK 0
+/* define mode of operation 0 if STACK or 1 if QUEUE */
+extern int mod;
+
 #define DELIMS "\n\t\r "
 
 /**
@@ -50,5 +52,15 @@ void opcode_pop(stack_t **stack, unsigned int line_number);
 void opcode_swap(stack_t **stack, unsigned int line_number);
 void opcode_add(stack_t **stack, unsigned int line_number);
 void opcode_nop(stack_t **stack, unsigned int line_number);
+void opcode_sub(stack_t **stack, unsigned int line_number);
+void opcode_div(stack_t **stack, unsigned int line_number);
+void opcode_mul(stack_t **stack, unsigned int line_number);
+void opcode_mod(stack_t **stack, unsigned int line_number);
+void opcode_pchar(stack_t **stack, unsigned int line_number);
+void opcode_pstr(stack_t **stack, unsigned int line_number);
+void opcode_rotl(stack_t **stack, unsigned int line_number);
+void opcode_rotr(stack_t **stack, unsigned int line_number);
+void opcode_stack(stack_t **stack, unsigned int line_number);
+void opcode_queue(stack_t **stack, unsigned int line_number);
 
 #endif

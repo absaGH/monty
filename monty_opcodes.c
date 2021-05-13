@@ -49,15 +49,13 @@ void opcode_push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-
 	new->n = n;
 	if ((*stack) == NULL)
 	{
-		new->prev = NULL;
-		new->next = NULL;
+		new->prev = new->next = NULL;
 		(*stack) = new;
 	}
-	else
+	else if (mod == 0)
 	{
 		temp = (*stack);
 		(*stack)->prev = new;
@@ -65,7 +63,15 @@ void opcode_push(stack_t **stack, unsigned int line_number)
 		new->prev = NULL;
 		(*stack) = new;
 	}
-
+	else
+	{
+		temp = *stack;
+		while (temp->next)
+			temp = temp->next;
+		new->prev = temp;
+		new->next = NULL;
+		temp->next = new;
+	}
 }
 /**
  * opcode_pall - Prints the content of the stack
