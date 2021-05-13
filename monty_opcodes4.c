@@ -88,7 +88,7 @@ void opcode_rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top, *bottom;
 
-	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 		return;
 
 	top = (*stack);
