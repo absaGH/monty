@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	monty_file = fopen(argv[1], "r");
 	if (monty_file == NULL)
 	{
-		fprintf(stderr, "Error: can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		return (EXIT_FAILURE);
 	}
 	execute_monty(monty_file);
